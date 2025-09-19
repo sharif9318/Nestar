@@ -28,4 +28,4 @@ export enum MemberAuthType {
 
 registerEnumType(MemberAuthType, {
     name: 'MemberAuthType',
-});
+}); 
