@@ -62,6 +62,11 @@ memberProperties: {
     type: Number,
     default: 0,
     },
+memberPoints: {
+    type: Number,
+    default: 0,
+    },
+
     memberLikes: {
     type: Number,
     default: 0,
@@ -78,6 +83,11 @@ memberProperties: {
     type: Number,
     default: 0,
     },
+memberWarnings: {
+    type: Number,
+    default: 0,
+    },
+
     memberBlocks: {
     type: Number,
     default: 0,
