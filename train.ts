@@ -16,11 +16,27 @@
 
 // printNumbers();
 
-console.log("=========MIT Task ZM=======");
+// console.log("=========MIT Task ZM=======");
 
-function reverseInteger(num: number): number {
-  const reversed = num.toString().split('').reverse().join('');
-  return Number(reversed) ;
+// function reverseInteger(num: number): number {
+//   const reversed = num.toString().split('').reverse().join('');
+//   return Number(reversed) ;
+// }
+
+// console.log(reverseInteger(987654321)); 
+
+console.log("=========MIT Task ZN=======");
+
+function rotateArray(arr: number[], index: number): number[] {
+
+  if (index < 0 || index >= arr.length) {
+    return arr;
+  }
+
+  const firstPart = arr.slice(0, index + 1);
+  const secondPart = arr.slice(index + 1);
+
+  return [...secondPart, ...firstPart];
 }
 
-console.log(reverseInteger(987654321)); 
+console.log(rotateArray([1,2,3,4,5,6], 3)); 
