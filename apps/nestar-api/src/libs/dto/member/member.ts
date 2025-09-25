@@ -4,8 +4,8 @@ import { MemberAuthType, MemberStatus, MemberType } from '../../enums/member.enu
 
 @ObjectType()
 export class Member {
-    @Field(() => String)
-    _id: ObjectId;
+@Field(() => String)
+_id: ObjectId;
 
     @Field(() => MemberType)
     memberType: MemberType;
@@ -24,13 +24,13 @@ export class Member {
 
     memberPassword?: string;
 
-    @Field(() => String, {nullable: true})
-    memberFullName?: string;
+@Field(() => String, {nullable: true})
+memberFullName?: string;
 
-    @Field(() => String)
+@Field(() => String)
     memberImage: string;
 
-    @Field(() => String, {nullable: true})
+@Field(() => String, {nullable: true})
 memberAddress?: string;
 
 @Field(() => String, {nullable: true})
