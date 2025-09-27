@@ -33,4 +33,14 @@ const member = await this.jwtService.verifyAsync(token);
 return member;
 }
 
+//** Admin ***/
+
+public async getAllMembersByAdmin(): Promise<string> {
+    return 'getAllMembersByAdmin executed';
+}
+
+public async updateMemberByAdmin(): Promise<string> {
+    return 'updateMemberByAdmin executed';
+}
+
 }
