@@ -19,6 +19,8 @@ public async login(@Args('input') input: LoginInput): Promise<Member> {
     return this.memberService.login(input);
 }
 
+
+// Authenticated
 @Mutation(() => String)
 public async updateMember(): Promise<string> {
     console.log('Mutation: updateMember');

@@ -25,18 +25,45 @@
 
 // console.log(reverseInteger(987654321)); 
 
-console.log("=========MIT Task ZN=======");
+// console.log("=========MIT Task ZN=======");
 
-function rotateArray(arr: number[], index: number): number[] {
+// function rotateArray(arr: number[], index: number): number[] {
 
-  if (index < 0 || index >= arr.length) {
-    return arr;
+//   if (index < 0 || index >= arr.length) {
+//     return arr;
+//   }
+
+//   const firstPart = arr.slice(0, index + 1);
+//   const secondPart = arr.slice(index + 1);
+
+//   return [...secondPart, ...firstPart];
+// }
+
+// console.log(rotateArray([1,2,3,4,5,6], 3)); 
+
+console.log("=========MIT Task ZO=======");
+
+function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+  const countElements = (arr: any[]) => {
+    const map = new Map<any, number>();
+    for (const item of arr) {
+      map.set(item, (map.get(item) || 0) + 1);
+    }
+    return map;
+  };
+
+  const map1 = countElements(arr1);
+  const map2 = countElements(arr2);
+
+  if (map1.size !== map2.size) return false;
+
+  for (const [key, value] of map1) {
+    if (map2.get(key) !== value) return false;
   }
 
-  const firstPart = arr.slice(0, index + 1);
-  const secondPart = arr.slice(index + 1);
-
-  return [...secondPart, ...firstPart];
+  return true;
 }
 
-console.log(rotateArray([1,2,3,4,5,6], 3)); 
+console.log(areArraysEqual([1, 2, 2, 3], [3, 2, 1, 2]));
+console.log(areArraysEqual( ['a', 'b', 'a'], ['b', 'a', 'a'] ));
+console.log(areArraysEqual([1, 2, 3], [1, 2, 2, 3]));
