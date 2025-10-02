@@ -68,26 +68,41 @@
 // console.log(areArraysEqual( ['a', 'b', 'a'], ['b', 'a', 'a'] ));
 // console.log(areArraysEqual([1, 2, 3], [1, 2, 2, 3]));
 
-console.log("=========MIT Task ZO=======");
+// console.log("=========MIT Task ZO=======");
 
-function areParenthesesBalanced(input: string): boolean {
-  let balance = 0;
+// function areParenthesesBalanced(input: string): boolean {
+//   let balance = 0;
 
-  for (const char of input) {
-    if (char === '(') {
-      balance++;
-    } else if (char === ')') {
-      balance--;
-      if (balance < 0) {
-        // Yopuvchi qavs ochuvchidan oldin kelgan
-        return false;
-      }
-    }
+//   for (const char of input) {
+//     if (char === '(') {
+//       balance++;
+//     } else if (char === ')') {
+//       balance--;
+//       if (balance < 0) {
+//         // Yopuvchi qavs ochuvchidan oldin kelgan
+//         return false;
+//       }
+//     }
+//   }
+
+//   return balance === 0;
+// }
+
+// console.log(areParenthesesBalanced("(a + b) * (c + d)")); // true
+// console.log(areParenthesesBalanced("((a + b) * (c + d))")); // true
+// console.log(areParenthesesBalanced("(a + b * (c + d)")); // false
+
+console.log("=========MIT Task ZP=======");
+
+function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+  for (let item of arr1) {
+    let index = arr2.indexOf(item);
+    if (index === -1) return false;
+    arr2.splice(index, 1); 
   }
-
-  return balance === 0;
+  return true;
 }
 
-console.log(areParenthesesBalanced("(a + b) * (c + d)")); // true
-console.log(areParenthesesBalanced("((a + b) * (c + d))")); // true
-console.log(areParenthesesBalanced("(a + b * (c + d)")); // false
+console.log(areArraysEqual([1, 2, 2, 3], [3, 2, 1, 2]));
+console.log(areArraysEqual( ['a', 'b', 'a'], ['b', 'a', 'c'] ));
+console.log(areArraysEqual([1, 2, 3], [1, 2, 2, 3]));
