@@ -148,13 +148,13 @@ files: Promise<FileUpload>[],
 				stream
 					.pipe(createWriteStream(url))
 					.on('finish', () => resolve(true))
-					.on('error', (err) => reject(err));
+					.on('error', (err: any) => reject(err));
 			});
 			if (!result) throw new Error(Message.UPLOAD_FAILED);
 
-			uploadedImages[index] = url;
+			uploadedImages.push(url);
 		} catch (err) {
-			console.log('Error, file missing!');
+			console.error(`Upload failed for file ${index}:`, err);
 		}
 	});
 
