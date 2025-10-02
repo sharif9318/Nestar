@@ -65,7 +65,7 @@ memberId: ObjectId;
 soldAt?: Date;
 
 @Field(() => Date, { nullable: true })
-deleteAt?: Date;
+deletedAt?: Date;
 
 @Field(() => Date, { nullable: true })
 constructedAt?: Date;
