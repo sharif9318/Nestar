@@ -10,10 +10,11 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { MemberType } from '../../libs/enums/member.enum';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { MemberUpdate } from '../../libs/dto/member/member.update';
-import { shapeIntoMongoObjectId } from '../../libs/config';
+import { getSerialForImage, shapeIntoMongoObjectId, validMimeTypes } from '../../libs/config';
 import { WithoutGuard } from '../auth/guards/without.guard';
 import { GraphQLUpload, FileUpload } from 'graphql-upload';
 import { createWriteStream } from 'fs';
+import { Message } from '../../libs/enums/common.enum';
 
 @Resolver()
 export class MemberResolver {
@@ -115,7 +116,7 @@ const result = await new Promise((resolve, reject) => {
 	stream
 		.pipe(createWriteStream(url))
 		.on('finish', async () => resolve(true))
-		.on('error', () => reject(false));
+		.on('error', (err) => reject(err));
 });
 if (!result) throw new Error(Message.UPLOAD_FAILED);
 
@@ -147,7 +148,7 @@ files: Promise<FileUpload>[],
 				stream
 					.pipe(createWriteStream(url))
 					.on('finish', () => resolve(true))
-					.on('error', () => reject(false));
+					.on('error', (err) => reject(err));
 			});
 			if (!result) throw new Error(Message.UPLOAD_FAILED);
 
