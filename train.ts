@@ -92,17 +92,40 @@
 // console.log(areParenthesesBalanced("((a + b) * (c + d))")); // true
 // console.log(areParenthesesBalanced("(a + b * (c + d)")); // false
 
-console.log("=========MIT Task ZP=======");
+// console.log("=========MIT Task ZP=======");
 
-function areArraysEqual(arr1: any[], arr2: any[]): boolean {
-  for (let item of arr1) {
-    let index = arr2.indexOf(item);
-    if (index === -1) return false;
-    arr2.splice(index, 1); 
+// function areArraysEqual(arr1: any[], arr2: any[]): boolean {
+//   for (let item of arr1) {
+//     let index = arr2.indexOf(item);
+//     if (index === -1) return false;
+//     arr2.splice(index, 1); 
+//   }
+//   return true;
+// }
+
+// console.log(areArraysEqual([1, 2, 2, 3], [3, 2, 1, 2]));
+// console.log(areArraysEqual( ['a', 'b', 'a'], ['b', 'a', 'c'] ));
+// console.log(areArraysEqual([1, 2, 3], [1, 2, 2, 3]));
+
+console.log("=========MIT Task ZQ=======");
+
+function findDuplicates(arr: number[]): number[] {
+  const seen: number[] = [];
+  const duplicates: number[] = [];
+
+  for (let num of arr) {
+    if (seen.includes(num)) {
+      if (!duplicates.includes(num)) {
+        duplicates.push(num);
+      }
+    } else {
+      seen.push(num);
+    }
   }
-  return true;
+
+  return duplicates;
 }
 
-console.log(areArraysEqual([1, 2, 2, 3], [3, 2, 1, 2]));
-console.log(areArraysEqual( ['a', 'b', 'a'], ['b', 'a', 'c'] ));
-console.log(areArraysEqual([1, 2, 3], [1, 2, 2, 3]));
+console.log(findDuplicates([1, 2, 3, 2, 4, 5, 3])); 
+console.log(findDuplicates([5, 5, 5, 5, 5])); 
+console.log(findDuplicates([1, 2, 3, 4, 5]));
