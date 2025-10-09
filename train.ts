@@ -107,25 +107,46 @@
 // console.log(areArraysEqual( ['a', 'b', 'a'], ['b', 'a', 'c'] ));
 // console.log(areArraysEqual([1, 2, 3], [1, 2, 2, 3]));
 
-console.log("=========MIT Task ZQ=======");
+// console.log("=========MIT Task ZQ=======");
 
-function findDuplicates(arr: number[]): number[] {
-  const seen: number[] = [];
-  const duplicates: number[] = [];
+// function findDuplicates(arr: number[]): number[] {
+//   const seen: number[] = [];
+//   const duplicates: number[] = [];
 
-  for (let num of arr) {
-    if (seen.includes(num)) {
-      if (!duplicates.includes(num)) {
-        duplicates.push(num);
-      }
-    } else {
-      seen.push(num);
+//   for (let num of arr) {
+//     if (seen.includes(num)) {
+//       if (!duplicates.includes(num)) {
+//         duplicates.push(num);
+//       }
+//     } else {
+//       seen.push(num);
+//     }
+//   }
+
+//   return duplicates;
+// }
+
+// console.log(findDuplicates([1, 2, 3, 2, 4, 5, 3])); 
+// console.log(findDuplicates([5, 5, 5, 5, 5])); 
+// console.log(findDuplicates([1, 2, 3, 4, 5]));
+
+console.log("=========MIT Task ZR=======");
+
+function countNumberAndLetters(input: string): { number: number; letter: number } {
+  let number = 0;
+  let letter = 0;
+
+  for (let char of input) {
+    if (char >= '0' && char <= '9') {
+      number++;
+    } else if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
+      letter++;
     }
   }
 
-  return duplicates;
+  return { number, letter };
 }
 
-console.log(findDuplicates([1, 2, 3, 2, 4, 5, 3])); 
-console.log(findDuplicates([5, 5, 5, 5, 5])); 
-console.log(findDuplicates([1, 2, 3, 4, 5]));
+console.log(countNumberAndLetters("Hello123")); 
+console.log(countNumberAndLetters("2024 is the year of AI!")); 
+console.log(countNumberAndLetters("No numbers here!"));
