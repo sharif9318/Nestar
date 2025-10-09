@@ -60,18 +60,7 @@ targetProperty.memberData = await this.memberService.getMember(null, targetPrope
 return targetProperty;
 }
 
-public async propertyStatsEditor(input: StatisticModifier): Promise<Property> {
-    const { _id, targetKey, modifier } = input;
-    return await this.propertyModel
-    .findByIdAndUpdate(
-    _id,
-    { $inc: { [targetKey]: modifier } },
-    {
-    new: true,
-    },
-    )
-    .exec();
-}
+
 
 public async updateProperty(memberId: ObjectId, input: PropertyUpdate): Promise<Property> {
     let { propertyStatus, soldAt, deletedAt } = input;
@@ -259,6 +248,19 @@ public async removePropertyByAdmin(propertyId: ObjectId): Promise<Property> {
     const result = await this.propertyModel.findOneAndDelete(search).exec();
     if (!result) throw new InternalServerErrorException(Message.REMOVE_FAILED);
     return result;
+}
+
+public async propertyStatsEditor(input: StatisticModifier): Promise<Property> {
+    const { _id, targetKey, modifier } = input;
+    return await this.propertyModel
+    .findByIdAndUpdate(
+    _id,
+    { $inc: { [targetKey]: modifier } },
+    {
+    new: true,
+    },
+    )
+    .exec();
 }
 
 }
