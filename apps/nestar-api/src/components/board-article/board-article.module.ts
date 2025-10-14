@@ -6,21 +6,22 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MemberModule } from '../member/member.module';
 import { ViewModule } from '../view/view.module';
 import { AuthModule } from '../auth/auth.module';
+import { LikeModule } from '../like/like.module';
 
 @Module({
-   imports: [
-    MongooseModule.forFeature([
-    {
-    name: 'BoardArticle',
-    schema: BoardArticleSchema,
-    },
-    ]),
-        AuthModule,
-        ViewModule,
-        MemberModule,
-    ],
-  providers: [BoardArticleResolver, BoardArticleService],
-  exports: [BoardArticleService],
-
+	imports: [
+		MongooseModule.forFeature([
+			{
+				name: 'BoardArticle',
+				schema: BoardArticleSchema,
+			},
+		]),
+		AuthModule,
+		ViewModule,
+		MemberModule,
+		LikeModule,
+	],
+	providers: [BoardArticleResolver, BoardArticleService],
+	exports: [BoardArticleService],
 })
 export class BoardArticleModule {}
