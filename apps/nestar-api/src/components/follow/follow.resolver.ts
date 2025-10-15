@@ -14,9 +14,9 @@ export class FollowResolver {
 	constructor(private readonly followService: FollowService) {}
 
 	@UseGuards(AuthGuard)
-	@Mutation(() => Follower)
+	@Mutation((returns) => Follower)
 	public async subscribe(
-		@Args('memberId') input: string,
+		@Args('input') input: string,
 		@AuthMember('_id') memberId: ObjectId, //
 	): Promise<Follower> {
 		console.log('Mutation: subscribe');
