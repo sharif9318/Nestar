@@ -10,9 +10,8 @@
 //     if (count > 5) {
 //       clearInterval(intervalId);
 //     }
-//   }, 1000); 
+//   }, 1000);
 // }
-
 
 // printNumbers();
 
@@ -23,7 +22,7 @@
 //   return Number(reversed) ;
 // }
 
-// console.log(reverseInteger(987654321)); 
+// console.log(reverseInteger(987654321));
 
 // console.log("=========MIT Task ZN=======");
 
@@ -39,7 +38,7 @@
 //   return [...secondPart, ...firstPart];
 // }
 
-// console.log(rotateArray([1,2,3,4,5,6], 3)); 
+// console.log(rotateArray([1,2,3,4,5,6], 3));
 
 // console.log("=========MIT Task ZO=======");
 
@@ -98,7 +97,7 @@
 //   for (let item of arr1) {
 //     let index = arr2.indexOf(item);
 //     if (index === -1) return false;
-//     arr2.splice(index, 1); 
+//     arr2.splice(index, 1);
 //   }
 //   return true;
 // }
@@ -126,27 +125,41 @@
 //   return duplicates;
 // }
 
-// console.log(findDuplicates([1, 2, 3, 2, 4, 5, 3])); 
-// console.log(findDuplicates([5, 5, 5, 5, 5])); 
+// console.log(findDuplicates([1, 2, 3, 2, 4, 5, 3]));
+// console.log(findDuplicates([5, 5, 5, 5, 5]));
 // console.log(findDuplicates([1, 2, 3, 4, 5]));
 
-console.log("=========MIT Task ZR=======");
+// console.log("=========MIT Task ZR=======");
 
-function countNumberAndLetters(input: string): { number: number; letter: number } {
-  let number = 0;
-  let letter = 0;
+// function countNumberAndLetters(input: string): { number: number; letter: number } {
+//   let number = 0;
+//   let letter = 0;
 
-  for (let char of input) {
-    if (char >= '0' && char <= '9') {
-      number++;
-    } else if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
-      letter++;
-    }
-  }
+//   for (let char of input) {
+//     if (char >= '0' && char <= '9') {
+//       number++;
+//     } else if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
+//       letter++;
+//     }
+//   }
 
-  return { number, letter };
+//   return { number, letter };
+// }
+
+// console.log(countNumberAndLetters("Hello123"));
+// console.log(countNumberAndLetters("2024 is the year of AI!"));
+// console.log(countNumberAndLetters("No numbers here!"));
+
+console.log('=========MIT Task ZS=======');
+
+function singleNumber(arr: number[]): number | null {
+	for (let num of arr) {
+		if (arr.indexOf(num) === arr.lastIndexOf(num)) {
+			return num;
+		}
+	}
+	return null;
 }
 
-console.log(countNumberAndLetters("Hello123")); 
-console.log(countNumberAndLetters("2024 is the year of AI!")); 
-console.log(countNumberAndLetters("No numbers here!"));
+console.log(singleNumber([2, 2, 3, 2]));
+console.log(singleNumber([1, 1, 1, 1]));
