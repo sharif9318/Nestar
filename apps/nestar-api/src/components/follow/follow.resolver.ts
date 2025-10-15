@@ -15,10 +15,7 @@ export class FollowResolver {
 
 	@UseGuards(AuthGuard)
 	@Mutation((returns) => Follower)
-	public async subscribe(
-		@Args('input') input: string,
-		@AuthMember('_id') memberId: ObjectId, //
-	): Promise<Follower> {
+	public async subscribe(@Args('input') input: string, @AuthMember('_id') memberId: ObjectId): Promise<Follower> {
 		console.log('Mutation: subscribe');
 		const followingId = shapeIntoMongoObjectId(input);
 		return await this.followService.subscribe(memberId, followingId);
@@ -26,10 +23,7 @@ export class FollowResolver {
 
 	@UseGuards(AuthGuard)
 	@Mutation((returns) => Follower)
-	public async unsubscribe(
-		@Args('memberId') input: string,
-		@AuthMember('_id') memberId: ObjectId, //
-	): Promise<Follower> {
+	public async unsubscribe(@Args('input') input: string, @AuthMember('_id') memberId: ObjectId): Promise<Follower> {
 		console.log('Mutation: unsubscribe');
 		const followingId = shapeIntoMongoObjectId(input);
 		return await this.followService.unsubscribe(memberId, followingId);
