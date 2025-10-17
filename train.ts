@@ -150,16 +150,31 @@
 // console.log(countNumberAndLetters("2024 is the year of AI!"));
 // console.log(countNumberAndLetters("No numbers here!"));
 
-console.log('=========MIT Task ZS=======');
+// console.log('=========MIT Task ZS=======');
 
-function singleNumber(arr: number[]): number | null {
-	for (let num of arr) {
-		if (arr.indexOf(num) === arr.lastIndexOf(num)) {
-			return num;
+// function singleNumber(arr: number[]): number | null {
+// 	for (let num of arr) {
+// 		if (arr.indexOf(num) === arr.lastIndexOf(num)) {
+// 			return num;
+// 		}
+// 	}
+// 	return null;
+// }
+
+// console.log(singleNumber([2, 2, 3, 2]));
+// console.log(singleNumber([1, 1, 1, 1]));
+
+console.log('=========MIT Task ZT=======');
+
+function firstUniqueCharIndex(str: string): number {
+	for (let i = 0; i < str.length; i++) {
+		const char = str[i];
+		if (str.indexOf(char) === str.lastIndexOf(char)) {
+			return i;
 		}
 	}
-	return null;
+	return -1;
 }
 
-console.log(singleNumber([2, 2, 3, 2]));
-console.log(singleNumber([1, 1, 1, 1]));
+console.log(firstUniqueCharIndex('mernstack'));
+console.log(firstUniqueCharIndex('train'));
