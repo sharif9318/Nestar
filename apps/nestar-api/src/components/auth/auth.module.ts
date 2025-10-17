@@ -4,14 +4,14 @@ import { JwtModule } from '@nestjs/jwt';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [
-      HttpModule,
-      JwtModule.register({
-          secret: `${process.env.SECRET_TOKEN}`,
-          signOptions: { expiresIn: '30d' },
-      }),
-  ],
-  providers: [AuthService],
-  exports: [AuthService],
+	imports: [
+		HttpModule,
+		JwtModule.register({
+			secret: `${process.env.SECRET_TOKEN}`,
+			signOptions: { expiresIn: '30d' },
+		}),
+	],
+	providers: [AuthService],
+	exports: [AuthService],
 })
 export class AuthModule {}
