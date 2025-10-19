@@ -164,17 +164,35 @@
 // console.log(singleNumber([2, 2, 3, 2]));
 // console.log(singleNumber([1, 1, 1, 1]));
 
-console.log('=========MIT Task ZT=======');
+// console.log('=========MIT Task ZT=======');
 
-function firstUniqueCharIndex(str: string): number {
-	for (let i = 0; i < str.length; i++) {
-		const char = str[i];
-		if (str.indexOf(char) === str.lastIndexOf(char)) {
-			return i;
+// function firstUniqueCharIndex(str: string): number {
+// 	for (let i = 0; i < str.length; i++) {
+// 		const char = str[i];
+// 		if (str.indexOf(char) === str.lastIndexOf(char)) {
+// 			return i;
+// 		}
+// 	}
+// 	return -1;
+// }
+
+// console.log(firstUniqueCharIndex('mernstack'));
+// console.log(firstUniqueCharIndex('train'));
+
+console.log('=========MIT Task ZU=======');
+
+function sumOfUnique(arr: number[]): number {
+	let sum = 0;
+
+	for (let num of arr) {
+		if (arr.indexOf(num) === arr.lastIndexOf(num)) {
+			sum += num;
 		}
 	}
-	return -1;
+
+	return sum;
 }
 
-console.log(firstUniqueCharIndex('mernstack'));
-console.log(firstUniqueCharIndex('train'));
+console.log(sumOfUnique([1, 2, 3, 2, 4]));
+console.log(sumOfUnique([5, 5, 5, 5]));
+console.log(sumOfUnique([1, 2, 3, 4, 5]));
